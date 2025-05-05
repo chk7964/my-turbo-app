@@ -1,0 +1,23 @@
+{
+  "private": true,
+  "packageManager": "pnpm@9.7.0",
+  "workspaces": [
+    "apps/*"
+  ],
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "start": "concurrently \"pnpm --filter backend start\" \"pnpm --filter frontend start\"",
+    "lint": "eslint . --ext .ts,.tsx",
+    "lint:fix": "eslint . --ext .ts,.tsx --fix",
+    "format": "prettier --write ."
+  },
+  "devDependencies": {
+    "concurrently": "9.1.2",
+    "eslint": "^9",
+    "eslint-config-prettier": "^10.1.2",
+    "eslint-plugin-prettier": "^5.4.0",
+    "prettier": "^3.5.3",
+    "turbo": "^2.5.2"
+  }
+}
