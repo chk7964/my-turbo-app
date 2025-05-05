@@ -8,14 +8,16 @@ RUN npm install -g pnpm
 # Set the working directory inside the container
 WORKDIR /app
 
+# Copy the rest of the application code
+COPY . .
+
 # Copy package.json and pnpm-lock.yaml to leverage Docker cache
-COPY package.json pnpm-lock.yaml ./
+# COPY package.json pnpm-lock.yaml ./
 
 # Install dependencies using PNPM
 RUN pnpm install
 
-# Copy the rest of the application code
-COPY . .
+
 
 # Expose the port the app runs on (e.g., 3000 for a Next.js app)
 EXPOSE 3000
